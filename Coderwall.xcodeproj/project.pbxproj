@@ -169,16 +169,6 @@
 		DAF6FEDF15C240E400108BED /* KIFTestStep+pullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF6FEDE15C240E300108BED /* KIFTestStep+pullToRefresh.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		BE60B69114EFA64100CF7151 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BE60B65C14EFA64000CF7151 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BE60B66414EFA64100CF7151;
-			remoteInfo = Coderwall;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		BD6E7CF697D54B3B9BC70AB5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE07C366151DC8CA00CAE177 /* ImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageLoader.h; sourceTree = "<group>"; };
@@ -708,13 +698,12 @@
 				BE60B68714EFA64100CF7151 /* Sources */,
 				BE60B68814EFA64100CF7151 /* Frameworks */,
 				BE60B68914EFA64100CF7151 /* Resources */,
-				BE60B68A14EFA64100CF7151 /* ShellScript */,
 				1F3514AF4CE1426DA5FE4609 /* Copy Pods Resources */,
+				BE60B68A14EFA64100CF7151 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				BE60B69214EFA64100CF7151 /* PBXTargetDependency */,
 			);
 			name = CoderwallTests;
 			productName = CoderwallTests;
@@ -901,7 +890,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+			shellScript = "# Run the unit tests in this test bundle.\n\"${PROJECT_DIR}/Scripts/RunPlatformUnitTests\"\n";
+			showEnvVarsInLog = 0;
 		};
 		DA584DF1159C037200173134 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1002,14 +992,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		BE60B69214EFA64100CF7151 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = BE60B66414EFA64100CF7151 /* Coderwall */;
-			targetProxy = BE60B69114EFA64100CF7151 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		BE60B67214EFA64100CF7151 /* InfoPlist.strings */ = {
@@ -1154,6 +1136,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D56FB123D143438FB77AA2AB /* Pods.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Coderwall.app/Coderwall";
 				DSTROOT = /tmp/xcodeproj.dst;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1163,17 +1146,19 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Coderwall/Coderwall-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(PODS_ROOT)/Headers\"",
-					"\"$(PODS_ROOT)/Headers/DejalActivityView\"",
-					"\"$(PODS_ROOT)/Headers/EGOTableViewPullRefresh\"",
-					"\"$(PODS_ROOT)/Headers/SBJson\"",
-					"\"$(PODS_ROOT)/Kiwi/Kiwi/\"",
-				);
+				HEADER_SEARCH_PATHS = "\"$(PODS_ROOT)/Kiwi/Kiwi/\"";
 				INFOPLIST_FILE = "CoderwallTests/CoderwallTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+					"-framework",
+					UIKit,
+					"-framework",
+					QuartzCore,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				TEST_AFTER_BUILD = NO;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = octest;
@@ -1184,6 +1169,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D56FB123D143438FB77AA2AB /* Pods.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Coderwall.app/Coderwall";
 				DSTROOT = /tmp/xcodeproj.dst;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1193,17 +1179,19 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Coderwall/Coderwall-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(PODS_ROOT)/Headers\"",
-					"\"$(PODS_ROOT)/Headers/DejalActivityView\"",
-					"\"$(PODS_ROOT)/Headers/EGOTableViewPullRefresh\"",
-					"\"$(PODS_ROOT)/Headers/SBJson\"",
-					"\"$(PODS_ROOT)/Kiwi/Kiwi/\"",
-				);
+				HEADER_SEARCH_PATHS = "\"$(PODS_ROOT)/Kiwi/Kiwi/\"";
 				INFOPLIST_FILE = "CoderwallTests/CoderwallTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+					"-framework",
+					UIKit,
+					"-framework",
+					QuartzCore,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				TEST_AFTER_BUILD = NO;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = octest;
