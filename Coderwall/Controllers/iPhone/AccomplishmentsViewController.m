@@ -84,7 +84,7 @@
 {
     if([accomplishments count]==0){
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"emptyCell"];
-        cell.textLabel.text = [[NSString alloc] initWithString:@"No Accomplishments Entered Yet"];
+        cell.textLabel.text = @"No Accomplishments Entered Yet";
         return cell;
     } else {
         AccomplishmentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"accomplishmentCell"];

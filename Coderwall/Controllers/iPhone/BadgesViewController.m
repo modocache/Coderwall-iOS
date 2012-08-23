@@ -91,7 +91,7 @@
 {
     if([self.badges count] == 0){
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"emptyCell"];
-        cell.textLabel.text = [[NSString alloc] initWithString:@"No Badges Awarded Yet"];
+        cell.textLabel.text = @"No Badges Awarded Yet";
         return cell;
     } else {
         BadgeCell *cell = [tableView dequeueReusableCellWithIdentifier:@"badgeCell"];

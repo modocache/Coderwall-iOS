@@ -3,25 +3,13 @@
 //  Coderwall
 //
 //  Created by Will on 18/02/2012.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 Bearded Apps. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "EGORefreshTableHeaderView.h"
 
-@interface ProfileViewController : UIViewController <EGORefreshTableHeaderDelegate, UIScrollViewDelegate>
-{
-    IBOutlet UILabel *fullName;
-    IBOutlet UILabel *summary;
-    IBOutlet UIImageView *avatar;
-    IBOutlet UIImageView *profileBg;
-    IBOutlet UIScrollView *profileScrollView;
-    
-    EGORefreshTableHeaderView *_refreshHeaderView;
-	
-	//  Reloading var should really be your tableviews datasource
-	//  Putting it here for demo purposes 
-	BOOL _reloading;
-}
+#import <UIKit/UIKit.h>
+
+
+@interface ProfileViewController : UIViewController
 
 @end
